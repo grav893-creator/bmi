@@ -1,107 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="img/free-icon-bmi-6848762.png">
+    <link rel="icon" type="image/x-icon" href="./img/free-icon-bmi-6848762.png">
     <title>BMI</title>
+    <style>
+        .img{
+            width: 50px;
+            height: 50px;
+        }
+        .nights{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        body{
+            background-color:#242222;
+        }
+        body.white{
+            background-color:#8b8181;
+        }
+        h1{
+            text-align: center;
+            margin-top:125px;
+            margin-bottom:25px;
+            color:white;
+        }
+        p{
+            font-size: 24px;
+        }
+        #input{
+            width: 150px;
+            height: 16px;
+        }
+        #input1{
+            width: 150px;
+            height: 16px;
+        }
+        #button{
+            height: 30px;
+            background-color: #2a9d8f
+        }
+        #button2{
+            height: 30px;
+            background-color: #9a031e
+        }
+        span{
+            color:#fdf0d5
+        }
+        .num1{
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .num2{
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bmi{
+            display: flex;
+            justify-content: center;
+        }
+        .bmi-item{
+            background-color: white;
+            padding: 10px 50px 10px 50px
+        }
+        .button__item{
+            display: flex;
+            justify-content: space-between;
+        }
+        .text__p {
+            color: rgb(209, 93, 55);
+            font-size: 20px;
+        }
+        .text__p-flex {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <style>
-        
-.img{
-    width: 50px;
-    height: 50px;
-}
-.nights{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-body{
-    background-color:#242222;
-}
-body.white{
-    background-color:#8b8181;
-}
-h1{
-    text-align: center;
-    margin-top:125px;
-    margin-bottom:25px;
-    color:white;
-
-}
-p{
-    font-size: 24px;
-}
-#input{
-
-    width: 150px;
-    height: 16px;
-}
-#input1{
-
-    width: 150px;
-    height: 16px;
-}
-#button{
-    height: 30px;
-    background-color: #2a9d8f
-
-}
-#button2{
-    height: 30px;
-    background-color: #9a031e
-}
-span{
-    color:#fdf0d5
-}
-.num1{
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-}
-.num2{
-
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    
-}
-.bmi{
-    display: flex;
-    justify-content: center;
-}
-.bmi-item{
-    background-color: white;
-    padding: 10px 50px 10px 50px
-}
-.button__item{
-    display: flex;
-    justify-content: space-between;
-
-}
-.text__p {
-    color: rgb(209, 93, 55);
-    font-size: 20px;
-}
-.text__p-flex {
-    display: flex;
-    justify-content: center;
-}
-
-    </style>
-<!-- HTML -->
- <div class="nights">
-         <button>
-        <img src="/img/free-icon-day-and-night-6889926.png" alt="img" class="img" onclick="night()">
-    </button>
+    <div class="nights">
+        <button>
+            <img src="./img/free-icon-day-and-night-6889926.png" alt="img" class="img" onclick="night()">
+        </button>
     </div>
+    
     <h1>Калькулятор ИМТ</h1>
 
     <div class="bmi">
@@ -122,67 +111,49 @@ span{
             </div>
 
             <p id="res">Результат: </p>
-    
         </div>  
-        
     </div>
+    
     <div class="text__p">
         <div class="text__p-flex">
-                <p id="p__text"></p>
+            <p id="p__text"></p>
         </div>
     </div>
- 
-     <script>
-   function result(){
-    let num1=parseFloat(document.getElementById("input").value); //вес
-    let num2=parseFloat(document.getElementById("input1").value); //рост 
-    let result=Math.round(num1/(num2/100)**2);
-    document.getElementById("res").textContent="Результат: " + result
 
-    
-     if (result <= 18.5) {
-        document.getElementById("p__text").textContent = "Ваш ИМТ ниже 18.5 (Дефицит массы тела)";
-    }
+    <script>
+        function result(){
+            let num1 = parseFloat(document.getElementById("input").value); // вес
+            let num2 = parseFloat(document.getElementById("input1").value); // рост 
+            let result = Math.round(num1 / (num2 / 100) ** 2);
+            document.getElementById("res").textContent = "Результат: " + result;
 
-    else if (result > 18.5 && result <= 24.9) {
-        document.getElementById("p__text").textContent = "Ваш ИМТ в норме (Нормальный вес)";
-    }
+            if (result <= 18.5) {
+                document.getElementById("p__text").textContent = "Ваш ИМТ ниже 18.5 (Дефицит массы тела)";
+            } else if (result > 18.5 && result <= 24.9) {
+                document.getElementById("p__text").textContent = "Ваш ИМТ в норме (Нормальный вес)";
+            } else if (result > 24.9 && result <= 29.9) {
+                document.getElementById("p__text").textContent = "У вас избыточный вес";
+            } else if (result > 29.9 && result <= 34.9) {
+                document.getElementById("p__text").textContent = "У вас ожирение 1 степени это плохо";
+            } else if (result > 34.9 && result <= 39.9) {
+                document.getElementById("p__text").textContent = "У вас ожирение 2 степени это ужасно";
+            } else if (result > 39.9) {
+                document.getElementById("p__text").textContent = "У вас ожирение 3 степени это очень ужасно";
+            } else {
+                document.getElementById("p__text").textContent = "Введите корректные данные";
+            }
+        }
 
-    else if (result > 24.9 && result <= 29.9) {
-        document.getElementById("p__text").textContent = "У вас избыточный вес";
-    }
+        function reset(){
+            document.getElementById("input").value = "";
+            document.getElementById("input1").value = "";
+            document.getElementById("res").textContent = "Результат: 0";
+            document.getElementById("p__text").textContent = "";
+        }
 
-    else if (result > 29.9 && result <= 34.9) {
-        document.getElementById("p__text").textContent = "У вас ожирение 1 степени это плохо";
-    }
-
-    else if (result > 34.9 && result <= 39.9) {
-        document.getElementById("p__text").textContent = "У вас ожирение 2 степени это ужасно";
-    }
-
-    else if (result > 39.9) {
-        document.getElementById("p__text").textContent = "У вас ожирение 3 степени это очень ужасно";
-    }
-
-    else {
-        document.getElementById("p__text").textContent = "Введите корректные данные";
-    }
-}
-    
- 
-
-
-function reset(){
-    document.getElementById("input").value = "";
-    document.getElementById("input1").value = "";
-    document.getElementById("res").textContent="Результат: " + "0"
-}
-function night(){
-    document.body.classList.toggle("white")
-}
-
-     </script>
+        function night(){
+            document.body.classList.toggle("white");
+        }
+    </script>
 </body>
 </html>
-
-
